@@ -44,7 +44,7 @@ public class ApplyPromotions {
 				price += lineItem.getSku().getUnitPrice() * lineItem.getQuantity();
 			}
 		}
-		return null;
+		return price;
 	}
 
 	private static PromotionRuleOne checkPromotionRule1Exists(SKU sku, List<PromotionRuleOne> promotionRuleOnes) {
