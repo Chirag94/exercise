@@ -13,14 +13,14 @@ public class Arguments {
 
 	public Arguments(String [] args) {
 		Stack<String> params = IntStream.rangeClosed(1, args.length).mapToObj(
-				i->args[args.length-1]).collect(Collectors.toCollection(Stack::new));
+				i->args[args.length-i]).collect(Collectors.toCollection(Stack::new));
 		while(!params.empty()) {
 			String param = params.pop();
-			if(params.equals("-skuUnitPriceFile"))
+			if(param.equals("-skuUnitPriceFile"))
 				skuUnitPriceFile = new String(params.pop());
-			else if(params.equals("-activePromotionsFile"))
+			else if(param.equals("-activePromotionsFile"))
 				activePromotionsFile = new String(params.pop());
-			if(params.equals("-scenariosFile"))
+			if(param.equals("-scenariosFile"))
 				scenariosFile = new String(params.pop());
 			
 		}
