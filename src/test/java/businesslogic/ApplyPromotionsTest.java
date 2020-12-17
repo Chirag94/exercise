@@ -1,12 +1,12 @@
 package businesslogic;
 
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import pojos.LineItem;
 import pojos.PromotionRuleOne;
@@ -20,7 +20,7 @@ public class ApplyPromotionsTest {
 	List<PromotionRuleOne> rule1s;
 	List<PromotionRuleTwo> rule2s;
 
-	@Before
+	@BeforeEach
 	public void init() {
 
 		SKU sku1 = new SKU();
@@ -64,7 +64,7 @@ public class ApplyPromotionsTest {
 
 	}
 
-	@Test
+	@org.junit.jupiter.api.Test
 	public void testScenarioA() {
 
 		scenario = new Scenario();
@@ -85,11 +85,12 @@ public class ApplyPromotionsTest {
 
 		Double actual = ApplyPromotions.apply(scenario, skus, rule1s, rule2s);
 		Double expected = new Double(100D);
-		assertEquals(expected, actual);
+		assertEquals(expected.doubleValue(), actual.doubleValue());
 
 	}
 
-	@Test
+	@org.junit.jupiter.api.Test
+
 	public void testScenarioB() {
 
 		scenario = new Scenario();
@@ -110,10 +111,11 @@ public class ApplyPromotionsTest {
 
 		Double actual = ApplyPromotions.apply(scenario, skus, rule1s, rule2s);
 		Double expected = new Double(370D);
-		assertEquals(expected, actual);
+		assertEquals(expected.doubleValue(), actual.doubleValue());
 
 	}
-	@Test
+	@org.junit.jupiter.api.Test
+
 	public void testScenarioC() {
 		
 		scenario = new Scenario();
@@ -141,7 +143,7 @@ public class ApplyPromotionsTest {
 		
 		Double actual = ApplyPromotions.apply(scenario, skus, rule1s, rule2s);
 		Double expected = new Double(280D);
-		assertEquals(expected, actual);
+		assertEquals(expected.doubleValue(), actual.doubleValue());
 		
 		
 	}
